@@ -1,0 +1,33 @@
+footer {
+    background-color: aliceblue;
+    top: 0;
+    position: relative;
+    width: 100%;
+    font-size: 12px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+footer ul li {
+    padding: 10px;
+    margin-right: 5px;
+}
+
+footer ul li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+footer ul li a {
+    text-decoration: none;
+    columns: black;
+}
+
+footer ul li a:visited {
+    color: black;
+}
