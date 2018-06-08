@@ -1,0 +1,35 @@
+nav {
+    background-color: aliceblue;
+    top: 0;
+    position: relative;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+}
+
+nav ul li {
+    padding: 10px;
+    margin-right: 5px;
+    border-right: transparent 1px solid;
+    border-left: transparent 1px solid;
+}
+
+nav ul li:hover {
+    cursor: pointer;
+    border-right: solid black 1px;
+    border-left: solid black 1px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    columns: black;
+}
+
+nav ul li a:visited {
+    color: black;
+}
