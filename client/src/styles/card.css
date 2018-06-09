@@ -1,0 +1,30 @@
+.card {
+    border: solid lightgray 1px;
+    border-radius: 3px;
+/*     width: 23%; */
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.image {
+    height: 160px;
+    background-image: url('https://scontent.fbed1-2.fna.fbcdn.net/v/t1.0-0/s600x600/34688646_10214679588814701_3669100727436836864_n.jpg?_nc_cat=0&oh=a3deb301485cf57e0b078cafeb5314c1&oe=5BAADBB4');
+    background-size: cover;
+    background-position: center;
+}
+.description {
+    height: 40px;
+    text-align: left;
+    padding-left: 5px
+}
+
+.item-title, .date-loc {
+    font-size: 12px;
+    margin: 0;
+    margin-top: 5px;
+
+}
+
