@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import '../styles/loginform.css';
+import { login } from '../actions';
 const axios = require('axios');
 
-export default class LoginForm extends Component {
+const mapStateToProps = state =>  {
+    console.log(state)
+    return {
+        errorMsg: state.reducer.errorMsg
+    };
+}
+
+export class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,16 +26,10 @@ export default class LoginForm extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        axios.post('/api/auth', {
+        this.props.dispatch(login({
             username: this.state.username,
             password: this.state.password
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+        }))
     }
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
@@ -38,6 +41,7 @@ export default class LoginForm extends Component {
         const {username, password, isLoading} = this.state
         return (
             <form className={'form-horizontal'} onSubmit={this.onSubmit}>
+                <p>{this.props.errorMsg}</p>
                 <legend>Log In</legend>
                 <div className={'form-group'}>
                     <label className={'control-label'} htmlFor='username'>Username:</label>
@@ -53,3 +57,5 @@ export default class LoginForm extends Component {
         );
     }
 };
+
+export default connect(mapStateToProps)(LoginForm)
