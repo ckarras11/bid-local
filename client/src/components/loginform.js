@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import '../styles/loginform.css';
 import { login } from '../actions';
-const axios = require('axios');
 
 const mapStateToProps = state =>  {
-    console.log(state)
     return {
         errorMsg: state.reducer.errorMsg
     };
