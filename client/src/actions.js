@@ -28,3 +28,9 @@ export const login = data => dispatch => {
         dispatch(handleLoginErrors(err.response.data));
     })
 }
+
+export const logout = dispatch => {
+    sessionStorage.removeItem('jwtToken');
+    setAuthorizationToken(false);
+    dispatch(setCurrentUser({}));
+}
