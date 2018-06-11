@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     errorMsg: '',
-    username: '',
+    user: {},
     isAuthenticated: false
 };
 
@@ -18,18 +18,17 @@ const reducer = (state = initialState, action) => {
                 isAuthenticated: false
             });
             return state;
-            break;
         case SET_CURRENT_USER:
-            console.log(action.user)
             state = Object.assign({}, state, {
                 errorMsg: '',
-                username: action.user.username,
+                user: action.user,
                 isAuthenticated: true
             });
+            console.log(state)
             return state;
-            break;
+        default:
+            return state;
     }
-    return state;
 };
 
 export default reducer;
