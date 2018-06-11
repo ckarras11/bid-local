@@ -6,8 +6,7 @@ import Grid from './grid';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import setAuthorizationToken from '../utils/setAuthToken';
-import jwt from 'jsonwebtoken';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 setAuthorizationToken(sessionStorage.jwtToken);
 
@@ -19,7 +18,7 @@ class App extends Component {
 					<TopNav />
 					<Route exact path="/" component={Grid} />
 					<Route path="/login" component={LoginPage} />
-					<Route path="/register" component={RegisterPage} />
+					<Route path="/signup" component={RegisterPage} />
 					{/* <Route path='/home' component={Profile} /> */}
 					<Route path="/browse" component={Grid} />
 					<Footer />
