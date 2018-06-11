@@ -33,6 +33,7 @@ class TopNav extends Component {
 
         return (
             <nav>
+                <a href="/"><img src="https://www.keycomputers.co.uk/home/logo-logo/" alt="logo"/></a>
                 {this.props.isAuthenticated ? userLinks : guestLinks}
             </nav>
         )
