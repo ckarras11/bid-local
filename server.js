@@ -30,13 +30,13 @@ function checkToken(req, res, next) {
 
     if(!token) {
         console.log('No token provided');
-        return res.status(403).send({auth: false, message: 'Missing Token'})
+        return res.status(403).send({auth: false, message: 'No Token Provided'})
     }
 
     jwt.verify(token, JWT_ENCRYPTION_KEY, function(err, decoded) {
         if (err){
             console.log('Failed to authenticate');
-            return res.status(500).send({ auth: false, message: 'Failed to authenticate.' });
+            return res.status(401).send({ auth: false, message: 'Failed to authenticate.' });
         }
         else{
             console.log('Decoded token is: '+decoded);
@@ -57,11 +57,12 @@ app.post('/api/auth', (req, res) => {
                 if(user.password == password) {
                     const token = jwt.sign({
                         id: user.id,
-                        username: user.username
+                        username: user.username,
+                        exp: Math.floor(Date.now() / 1000) + 30
                     }, JWT_ENCRYPTION_KEY);
                     res.json({token})
                 } else {
-                   return res.status(401).json({ errors: 'Invalid Credentials' })
+                   return res.status(401).redirect('/login').json({ errors: 'Invalid Credentials' })
                 }
             } else {
                 return res.status(401).json({ errors: 'Invalid Credentials' })
@@ -70,7 +71,7 @@ app.post('/api/auth', (req, res) => {
 })
 
 app.get('/api/hello', checkToken, (req, res) => {
-    res.status(200).send({ express: 'Hello From Express' });
+    res.status(200).send({ express: 'Hello From Express', userid: req.userid });
   });
 // Initializing Server
 let server;
