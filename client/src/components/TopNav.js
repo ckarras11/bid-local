@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../actions';
 import '../styles/top-nav.css';
-
-const mapStateToProps = state => {
-    return {
-        isAuthenticated: state.reducer.isAuthenticated
-    }
-}
 
 class TopNav extends Component {
     logout(e)  {
@@ -17,7 +11,7 @@ class TopNav extends Component {
     render() {
         const userLinks = (
             <ul>
-                <li><a href="/category">Categories</a></li>
+                <li><a href="/browse">Browse</a></li>
                 <li>Saved</li>
                 <li>My Profile</li>
                 <li><a href="" onClick={this.logout.bind(this)} >Logout</a></li>
@@ -37,6 +31,12 @@ class TopNav extends Component {
                 {this.props.isAuthenticated ? userLinks : guestLinks}
             </nav>
         )
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.reducer.isAuthenticated
     }
 }
 
