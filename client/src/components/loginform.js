@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import '../styles/loginform.css';
 import { login } from '../actions';
 
-const mapStateToProps = state =>  {
-    return {
-        errorMsg: state.reducer.errorMsg
-    };
-}
 
 export class LoginForm extends Component {
     constructor(props) {
@@ -21,7 +17,7 @@ export class LoginForm extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
     }
-
+    
     onSubmit(e) {
         e.preventDefault();
         this.props.dispatch(login({
@@ -33,10 +29,11 @@ export class LoginForm extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
     
-
-
     render() {
         const {username, password, isLoading} = this.state
+        if (this.props.isAuthenticated) {
+            return <Redirect to='/Browse' />
+        }
         return (
             <form className={'form-horizontal'} onSubmit={this.onSubmit}>
                 <p>{this.props.errorMsg}</p>
@@ -55,5 +52,12 @@ export class LoginForm extends Component {
         );
     }
 };
+
+const mapStateToProps = state =>  {
+    return {
+        errorMsg: state.reducer.errorMsg,
+        isAuthenticated: state.reducer.isAuthenticated
+    };
+}
 
 export default connect(mapStateToProps)(LoginForm)
