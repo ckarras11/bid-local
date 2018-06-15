@@ -3,8 +3,8 @@ import TopNav from './TopNav';
 import Footer from './footer';
 import '../styles/App.css';
 import Grid from './grid';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
+import LoginPage from './Login/LoginPage';
+import RegisterPage from './Register/RegisterPage';
 import setAuthorizationToken from '../utils/setAuthToken';
 import requireAuth from '../utils/requireAuth'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
