@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import '../styles/loginform.css';
-import { login } from '../actions';
+import '../../styles/loginForm.css';
+import { login } from '../../actions';
 
 
 export class LoginForm extends Component {
