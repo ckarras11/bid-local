@@ -47,22 +47,23 @@ function checkToken(req, res, next) {
 }
 
 app.post('/api/auth', (req, res) => {
-    const { username, password } = req.body;
-    console.log(username, password)
+    const { email, password } = req.body;
+    console.log(email, password, req.body)
     User
-        .findOne({username: username})
+        .findOne({email: email})
         .then(user => {
             if(user) {
+                console.log(user)
                 //add bcrypt
-                if(user.password == password) {
+                if(user.password === password) {
                     const token = jwt.sign({
                         id: user.id,
-                        username: user.username,
+                        email: user.email,
                         exp: Math.floor(Date.now() / 1000) + 30
                     }, JWT_ENCRYPTION_KEY);
                     res.json({token})
                 } else {
-                   return res.status(401).redirect('/login').json({ errors: 'Invalid Credentials' })
+                   return res.status(401).json({ errors: 'Invalid Credentials' })
                 }
             } else {
                 return res.status(401).json({ errors: 'Invalid Credentials' })
@@ -70,9 +71,10 @@ app.post('/api/auth', (req, res) => {
         })
 })
 
-app.get('/api/hello', checkToken, (req, res) => {
+/* app.get('/api/hello', checkToken, (req, res) => {
     res.status(200).send({ express: 'Hello From Express', userid: req.userid });
-  });
+  }); */
+  
 // Initializing Server
 let server;
 
