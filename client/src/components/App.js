@@ -6,9 +6,8 @@ import Grid from './grid';
 import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage';
 import setAuthorizationToken from '../utils/setAuthToken';
-import requireAuth from '../utils/requireAuth'
+import requireAuth from '../utils/requireAuth';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 
 setAuthorizationToken(sessionStorage.jwtToken);
 
@@ -20,7 +19,7 @@ class App extends Component {
 					<TopNav />
 					<Route exact path="/" />
 					<Route path="/login" component={LoginPage} />
-					<Route path="/signup" component={RegisterPage} />
+					<Route path="/register" component={RegisterPage} />
 					{/* <Route path='/home' component={Profile} /> */}
 					<Route path="/browse" component={requireAuth(Grid)} />
 					<Footer />
@@ -29,7 +28,5 @@ class App extends Component {
 		);
 	}
 }
-
-
 
 export default App;
