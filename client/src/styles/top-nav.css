@@ -1,5 +1,5 @@
 nav {
-    background-color: aliceblue;
+    background-color: rgb(40, 45, 49);
     top: 0;
     position: relative;
     width: 100%;
@@ -31,15 +31,11 @@ nav ul li {
 
 nav ul li:hover {
     cursor: pointer;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
+    text-decoration: underline;
 }
 
-nav ul li a {
+nav ul li a, nav ul li a:visited {
     text-decoration: none;
-    columns: black;
-}
-
-nav ul li a:visited {
-    color: black;
+    color: #acacac;
+    
 }

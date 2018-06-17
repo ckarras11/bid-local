@@ -1,7 +1,7 @@
 footer {
-    background-color: aliceblue;
-    top: 0;
-    position: relative;
+    background-color: rgb(40, 45, 49);
+    bottom: 0;
+    position: fixed;
     width: 100%;
     font-size: 12px;
 }
@@ -25,9 +25,9 @@ footer ul li:hover {
 
 footer ul li a {
     text-decoration: none;
-    columns: black;
+    color: #acacac;
 }
 
 footer ul li a:visited {
-    color: black;
+    color: #acacac;
 }
