@@ -6,7 +6,6 @@ import {setCurrentUser} from './actions';
 import jwt from 'jsonwebtoken';
 import './styles/index.css';
 import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
 import setAuthorizationToken from './utils/setAuthToken';
 
 if (sessionStorage.jwtToken) {
@@ -20,4 +19,4 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById('root')
 );
-registerServiceWorker();
+
