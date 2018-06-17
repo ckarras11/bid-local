@@ -6,22 +6,17 @@ const renderField = ({
     type,
     meta: { touched, error, warning }
   }) =>
-    <div>
-      <label>
-        {label}
-      </label>
-      <div>
-        <input {...input} placeholder={label} type={type} />
-        {touched &&
-          ((error &&
+    <div className="form-control">
+      <input {...input} className={touched && error ? 'err' : ''}placeholder={label} type={type}/> 
+      {/* touched &&
+        ((error &&
+          <span>
+            {error}
+          </span>) ||
+          (warning &&
             <span>
-              {error}
-            </span>) ||
-            (warning &&
-              <span>
-                {warning}
-              </span>))}
-      </div>
+              {warning}
+            </span>)) */}
     </div>
 
 export default renderField
