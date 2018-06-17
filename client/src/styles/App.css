@@ -1,5 +1,12 @@
 body {
   box-sizing: border-box;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  color: #636363;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
 
 .App {
