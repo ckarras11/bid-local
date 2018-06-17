@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RegisterForm from './RegisterForm';
 import { connect } from 'react-redux';
+import { register } from '../../actions';
 
 export class RegisterPage extends Component {
 	constructor(props) {
@@ -9,11 +10,8 @@ export class RegisterPage extends Component {
 	}
 
 	onSubmit(values) {
-		/* this.props.dispatch(login({
-        username: this.state.username,
-        password: this.state.password
-    })) */
 		console.log(values);
+		this.props.dispatch(register(values));
 	}
 	render() {
 		return (
