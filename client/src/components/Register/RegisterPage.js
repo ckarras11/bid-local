@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RegisterForm from './RegisterForm';
 import { connect } from 'react-redux';
 import { register } from '../../actions';
+import { Redirect } from 'react-router-dom';
 
 export class RegisterPage extends Component {
 	constructor(props) {
@@ -10,13 +11,15 @@ export class RegisterPage extends Component {
 	}
 
 	onSubmit(values) {
-		console.log(values);
 		this.props.dispatch(register(values));
 	}
 	render() {
+		if (this.props.newSignup !== '' && this.props.isAuthenticated === false) {
+			return <Redirect to="/login" />;
+		}
 		return (
 			<div>
-				<RegisterForm onSubmit={this.onSubmit} />
+				<RegisterForm onSubmit={this.onSubmit} msg={this.props.message} />
 			</div>
 		);
 	}
@@ -24,8 +27,9 @@ export class RegisterPage extends Component {
 
 const mapStateToProps = state => {
 	return {
-		errorMsg: state.reducer.errorMsg,
-		isAuthenticated: state.reducer.isAuthenticated
+		message: state.reducer.message,
+		isAuthenticated: state.reducer.isAuthenticated,
+		newSignup: state.reducer.newSignup
 	};
 };
 
