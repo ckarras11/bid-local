@@ -2,16 +2,22 @@ import axios from 'axios';
 import setAuthorizationToken from './utils/setAuthToken';
 import jwt from 'jsonwebtoken';
 
-export const HANDLE_LOGIN_ERRORS = 'HANDLE_LOGIN_ERRORS';
-export const handleLoginErrors = err => ({
-	type: HANDLE_LOGIN_ERRORS,
-	err
+export const SET_MESSAGE = 'SET_MESSAGE';
+export const setMessage = msg => ({
+	type: SET_MESSAGE,
+	msg
 });
 
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const setCurrentUser = user => ({
 	type: SET_CURRENT_USER,
 	user
+});
+
+export const SET_NEW_SIGNUP = 'SET_NEW_SIGNUP';
+export const setNewSignup = email => ({
+	type: SET_NEW_SIGNUP,
+	email
 });
 
 export const login = data => dispatch => {
@@ -25,14 +31,19 @@ export const login = data => dispatch => {
 			dispatch(setCurrentUser(user));
 		})
 		.catch(err => {
-			dispatch(handleLoginErrors(err.res.data));
+			dispatch(setMessage(err.response.data.errors));
 		});
 };
 
 export const register = data => dispatch => {
-	return axios.post('/api/register', data).then(res => {
-		console.log(res);
-	});
+	return axios
+		.post('/api/register', data)
+		.then(res => {
+			dispatch(setNewSignup(res.data.newUser));
+		})
+		.catch(err => {
+			dispatch(setMessage(err.response.data.errors));
+		});
 };
 
 export const logout = dispatch => {
