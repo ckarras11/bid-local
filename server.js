@@ -30,7 +30,7 @@ function checkToken(req, res, next) {
 
 	if (!token) {
 		console.log('No token provided');
-		return res.status(403).send({ auth: false, message: 'No Token Provided' });
+		return res.status(403).json({ auth: false, errors: 'No Token Provided' });
 	}
 
 	jwt.verify(token, JWT_ENCRYPTION_KEY, function(err, decoded) {
@@ -38,7 +38,7 @@ function checkToken(req, res, next) {
 			console.log('Failed to authenticate');
 			return res
 				.status(401)
-				.send({ auth: false, message: 'Failed to authenticate.' });
+				.json({ auth: false, errors: 'Failed to authenticate.' });
 		} else {
 			console.log('Decoded token is: ' + decoded);
 			req.userid = decoded.id;
@@ -65,15 +65,17 @@ app.post('/api/register', (req, res) => {
 
 		User.find({ email }).then(user => {
 			if (user.length !== 0) {
-				res.status(409).json({ error: 'user already exists' });
+				res.status(409).json({ errors: 'User already exists' });
 			} else {
-				User.create(newUser).then(() => {
-					res.status(201).json({ success: 'User Created' });
+				User.create(newUser).then(_user => {
+					res
+						.status(201)
+						.json({ success: 'User Created', newUser: _user.email });
 				});
 			}
 		});
 	} else {
-		res.status(409).json({ error: 'passwords do not match' });
+		res.status(409).json({ errors: 'passwords do not match' });
 	}
 });
 
