@@ -1,14 +1,19 @@
-import React from "react";
+import React from 'react';
 
 const renderField = ({
-    input,
-    label,
-    type,
-    meta: { touched, error, warning }
-  }) =>
-    <div className="form-control">
-      <input {...input} className={touched && error ? 'err' : ''}placeholder={label} type={type}/> 
-      {/* touched &&
+	input,
+	label,
+	type,
+	meta: { touched, error, warning }
+}) => (
+	<div className="form-control">
+		<input
+			{...input}
+			className={touched && error ? 'err' : ''}
+			placeholder={label}
+			type={type}
+		/>
+		{/* touched &&
         ((error &&
           <span>
             {error}
@@ -17,6 +22,7 @@ const renderField = ({
             <span>
               {warning}
             </span>)) */}
-    </div>
+	</div>
+);
 
-export default renderField
+export default renderField;
