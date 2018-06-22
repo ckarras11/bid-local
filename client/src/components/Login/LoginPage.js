@@ -21,7 +21,7 @@ export class LoginPage extends Component {
 
 		return (
 			<div>
-				<LoginForm onSubmit={this.onSubmit} err={this.props.errorMsg} />
+				<LoginForm onSubmit={this.onSubmit} msg={this.props.message} />
 			</div>
 		);
 	}
@@ -29,8 +29,9 @@ export class LoginPage extends Component {
 
 const mapStateToProps = state => {
 	return {
-		errorMsg: state.reducer.errorMsg,
-		isAuthenticated: state.reducer.isAuthenticated
+		message: state.reducer.message,
+		isAuthenticated: state.reducer.isAuthenticated,
+		newSignup: state.reducer.newSignup
 	};
 };
 

@@ -10,10 +10,10 @@ import {
 } from '../../utils/formValidation';
 
 let RegisterForm = props => {
-	const { handleSubmit, err } = props;
+	const { handleSubmit, msg } = props;
 	return (
 		<form className={'form-horizontal'} onSubmit={handleSubmit}>
-			<p>{err}</p>
+			<p>{msg}</p>
 			<h2>Sign Up</h2>
 			<p>Create an account. It's free and only takes a second!</p>
 			<div className="fields">
@@ -51,7 +51,7 @@ let RegisterForm = props => {
 				/>
 				<Field
 					name="password2"
-					type="password2"
+					type="password"
 					component={renderField}
 					label="Confirm Password"
 					validate={[required]}

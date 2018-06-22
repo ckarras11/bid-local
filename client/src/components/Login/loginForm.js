@@ -5,11 +5,10 @@ import renderField from '../renderField';
 import { required, email } from '../../utils/formValidation';
 
 let LoginForm = props => {
-	const { handleSubmit, err } = props;
-
+	const { handleSubmit, msg } = props;
 	return (
 		<form className={'form-horizontal'} onSubmit={handleSubmit}>
-			<p>{err}</p>
+			<p>{msg}</p>
 			<h2>Log In</h2>
 			<Field
 				name="email"
