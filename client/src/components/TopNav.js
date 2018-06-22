@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { logout } from '../actions';
 import '../styles/top-nav.css';
 
 class TopNav extends Component {
-	logout(e) {
+	logout() {
 		this.props.dispatch(logout);
 	}
 
@@ -12,7 +13,7 @@ class TopNav extends Component {
 		const userLinks = (
 			<ul>
 				<li>
-					<a href="/browse">Browse</a>
+					<Link to="/browse">Browse</Link>
 				</li>
 				<li>Saved</li>
 				<li>My Profile</li>
@@ -27,22 +28,22 @@ class TopNav extends Component {
 		const guestLinks = (
 			<ul>
 				<li>
-					<a href="/register">Sign Up</a>
+					<Link to="/register">Sign Up</Link>
 				</li>
 				<li>
-					<a href="/login">Login</a>
+					<Link to="/login">Login</Link>
 				</li>
 			</ul>
 		);
 
 		return (
 			<nav>
-				<a href="/">
+				<Link to="/">
 					<img
 						src="https://www.keycomputers.co.uk/home/logo-logo/"
 						alt="logo"
 					/>
-				</a>
+				</Link>
 				{this.props.isAuthenticated ? userLinks : guestLinks}
 			</nav>
 		);
