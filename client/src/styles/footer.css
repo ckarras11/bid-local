@@ -1,7 +1,6 @@
 footer {
 	background-color: rgb(40, 45, 49);
 	bottom: 0;
-	position: fixed;
 	width: 100%;
 	font-size: 12px;
 }
@@ -10,6 +9,8 @@ footer ul {
 	list-style: none;
 	display: flex;
 	justify-content: center;
+	margin: 0;
+	padding-left: 0;
 }
 
 footer ul li {
