@@ -14,3 +14,9 @@ This app is a hobby project that I am working on in my spare time.  The end goal
 2. Test server with mocha, chai, jest
 3. Finishing building out client side (profile, uploading, bidding functionality)
 4. Figure out deployment
+
+## Screen Shots
+![login screenshot](https://user-images.githubusercontent.com/30561347/42416427-d0598288-823b-11e8-9394-ce4622b480f0.png)
+![signup screenshot](https://user-images.githubusercontent.com/30561347/42416433-079d7010-823c-11e8-84c8-cbf03214bdcd.png)
+![mobile screenshot](https://user-images.githubusercontent.com/30561347/42416408-56e6708c-823b-11e8-93da-79a15a299e6e.png)
+![desktop screenshot](https://user-images.githubusercontent.com/30561347/42416423-ac2a48fc-823b-11e8-9c29-69bd6f61e27b.png)
