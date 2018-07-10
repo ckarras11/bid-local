@@ -16,7 +16,9 @@ class TopNav extends Component {
 					<Link to="/browse">Browse</Link>
 				</li>
 				<li>Saved</li>
-				<li>Profile</li>
+				<li>
+					<Link to="/profile">Profile</Link>
+				</li>
 				<li>
 					<a href="" onClick={this.logout.bind(this)}>
 						Logout

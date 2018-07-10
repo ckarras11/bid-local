@@ -5,6 +5,7 @@ import '../styles/App.css';
 import Grid from './grid';
 import LoginPage from './Login/LoginPage';
 import RegisterPage from './Register/RegisterPage';
+import ProfilePage from './Profile/ProfilePage';
 import setAuthorizationToken from '../utils/setAuthToken';
 import requireAuth from '../utils/requireAuth';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -20,7 +21,7 @@ class App extends Component {
 					<Route exact path="/" />
 					<Route path="/login" component={LoginPage} />
 					<Route path="/register" component={RegisterPage} />
-					{/* <Route path='/home' component={Profile} /> */}
+					<Route path="/profile" component={ProfilePage} />
 					<Route path="/browse" component={requireAuth(Grid)} />
 					<Footer />
 				</div>
