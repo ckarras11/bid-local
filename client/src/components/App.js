@@ -21,7 +21,7 @@ class App extends Component {
 					<Route exact path="/" />
 					<Route path="/login" component={LoginPage} />
 					<Route path="/register" component={RegisterPage} />
-					<Route path="/profile" component={ProfilePage} />
+					<Route path="/profile" component={requireAuth(ProfilePage)} />
 					<Route path="/browse" component={requireAuth(Grid)} />
 					<Footer />
 				</div>
