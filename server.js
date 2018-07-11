@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const { DATABASE_URL, PORT, JWT_ENCRYPTION_KEY } = require('./config');
 const path = require('path');
 const { User } = require('./models/user');
-
+//Test
 // Initializing app
 const app = express();
 mongoose.Promise = global.Promise;
