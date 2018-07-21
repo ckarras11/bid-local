@@ -8,6 +8,12 @@ export const setMessage = msg => ({
 	msg
 });
 
+// Toggles the modal on and off, also determines the modal to display
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const toggleModal = () => ({
+	type: TOGGLE_MODAL
+});
+
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const setCurrentUser = user => ({
 	type: SET_CURRENT_USER,

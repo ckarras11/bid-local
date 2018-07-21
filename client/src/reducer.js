@@ -1,14 +1,25 @@
-import { SET_MESSAGE, SET_CURRENT_USER, SET_NEW_SIGNUP } from './actions';
+import {
+	SET_MESSAGE,
+	SET_CURRENT_USER,
+	SET_NEW_SIGNUP,
+	TOGGLE_MODAL
+} from './actions';
 
 const initialState = {
 	message: '',
 	user: {},
 	isAuthenticated: false,
-	newSignup: ''
+	newSignup: '',
+	showModal: false
 };
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
+		case TOGGLE_MODAL:
+			state = Object.assign({}, state, {
+				showModal: !state.showModal
+			});
+			return state;
 		case SET_MESSAGE:
 			state = Object.assign({}, state, {
 				message: action.msg
