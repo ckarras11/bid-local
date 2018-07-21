@@ -3,5 +3,6 @@
 	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	grid-gap: 20px;
 	padding: 20px;
+	-ms-flex-line-pack: start;
 	align-content: start;
 }
