@@ -2,26 +2,18 @@ import React from 'react';
 
 const renderField = ({
 	input,
+	extraClass,
 	label,
 	type,
 	meta: { touched, error, warning }
 }) => (
-	<div className="form-control">
+	<div className={`form-control ${extraClass}`}>
 		<input
 			{...input}
 			className={touched && error ? 'err' : ''}
 			placeholder={label}
 			type={type}
 		/>
-		{/* touched &&
-        ((error &&
-          <span>
-            {error}
-          </span>) ||
-          (warning &&
-            <span>
-              {warning}
-            </span>)) */}
 	</div>
 );
 
