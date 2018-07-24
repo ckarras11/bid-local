@@ -14,6 +14,11 @@ export const toggleModal = () => ({
 	type: TOGGLE_MODAL
 });
 
+export const SET_UPLOAD = 'SET_UPLOAD';
+export const setUpload = upload => ({
+	type: SET_UPLOAD,
+	upload
+});
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const setCurrentUser = user => ({
 	type: SET_CURRENT_USER,
@@ -50,6 +55,10 @@ export const register = data => dispatch => {
 		.catch(err => {
 			dispatch(setMessage(err.response.data.errors));
 		});
+};
+
+export const postItem = data => dispatch => {
+	console.log(data);
 };
 
 export const logout = dispatch => {

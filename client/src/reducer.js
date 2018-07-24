@@ -2,12 +2,14 @@ import {
 	SET_MESSAGE,
 	SET_CURRENT_USER,
 	SET_NEW_SIGNUP,
-	TOGGLE_MODAL
+	TOGGLE_MODAL,
+	SET_UPLOAD
 } from './actions';
 
 const initialState = {
 	message: '',
 	user: {},
+	upload: {},
 	isAuthenticated: false,
 	newSignup: '',
 	showModal: false
@@ -23,6 +25,11 @@ const reducer = (state = initialState, action) => {
 		case SET_MESSAGE:
 			state = Object.assign({}, state, {
 				message: action.msg
+			});
+			return state;
+		case SET_UPLOAD:
+			state = Object.assign({}, state, {
+				upload: action.upload
 			});
 			return state;
 		case SET_CURRENT_USER:
