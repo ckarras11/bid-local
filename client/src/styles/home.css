@@ -1,0 +1,15 @@
+.hero {
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+		url('https://res.cloudinary.com/ckarras/image/upload/f_auto,w_auto/v1532997072/bid_cape_cod/board-deck-dock-275632.jpg');
+	height: 100%;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero h1 {
+	margin: 0;
+	color: white;
+	font-size: 60px;
+}

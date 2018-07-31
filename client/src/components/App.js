@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TopNav from './TopNav';
+import HomePage from './HomePage';
 import Footer from './footer';
 import '../styles/App.css';
 import Grid from './grid';
@@ -18,7 +19,7 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<TopNav />
-					<Route exact path="/" />
+					<Route exact path="/" component={HomePage} />
 					<Route path="/login" component={LoginPage} />
 					<Route path="/register" component={RegisterPage} />
 					<Route path="/profile" component={requireAuth(ProfilePage)} />
