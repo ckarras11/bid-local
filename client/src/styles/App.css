@@ -6,12 +6,7 @@ body {
 		Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	color: #636363;
 	background: #00d2ff; /* fallback for old browsers */
-	background: -webkit-linear-gradient(
-		to right,
-		#00d2ff,
-		#3a7bd5
-	); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #00d2ff, #3a7bd5);
+	background: linear-gradient(to right, #00d0ff81, #3a7bd581);
 }
 
 textarea:focus,
@@ -28,7 +23,6 @@ input:focus {
 }
 
 .App-logo {
-	-webkit-animation: App-logo-spin infinite 20s linear;
 	animation: App-logo-spin infinite 20s linear;
 	height: 80px;
 }
