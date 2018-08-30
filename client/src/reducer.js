@@ -3,7 +3,8 @@ import {
 	SET_CURRENT_USER,
 	SET_NEW_SIGNUP,
 	TOGGLE_MODAL,
-	SET_UPLOAD
+	SET_UPLOAD,
+	UPLOAD_ITEM_SUCCESS
 } from './actions';
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
 	upload: {},
 	isAuthenticated: false,
 	newSignup: '',
-	showModal: false
+	showModal: false,
+	newItem: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -45,6 +47,12 @@ const reducer = (state = initialState, action) => {
 				message: 'User Created',
 				isAuthenticated: false,
 				newSignup: action.email
+			});
+			return state;
+		case UPLOAD_ITEM_SUCCESS:
+			state = Object.assign({}, state, {
+				newItem: action.item,
+				showModal: false
 			});
 			return state;
 		default:

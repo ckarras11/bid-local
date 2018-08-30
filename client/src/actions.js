@@ -31,6 +31,12 @@ export const setNewSignup = email => ({
 	email
 });
 
+export const UPLOAD_ITEM_SUCCESS = 'UPLOAD_ITEM_SUCCESS';
+export const uploadItemSuccess = item => ({
+	type: UPLOAD_ITEM_SUCCESS,
+	item
+});
+
 export const login = data => dispatch => {
 	return axios
 		.post('/api/auth', data)
@@ -58,7 +64,16 @@ export const register = data => dispatch => {
 };
 
 export const postItem = data => dispatch => {
-	console.log(data);
+	console.log(data, 'data from actions');
+	//dispatch(uploadItemInit())
+	return axios
+		.post('/api/upload', data)
+		.then(res => {
+			if (res.status === 201) {
+				dispatch(uploadItemSuccess(res.data.newItem));
+			}
+		})
+		.catch(err => console.error(err));
 };
 
 export const logout = dispatch => {
