@@ -13,12 +13,20 @@
 	-ms-flex-pack: end;
 	justify-content: flex-end;
 	position: relative;
+	background: #f3f3f3;
+	-webkit-box-shadow: 10px 10px 48px -11px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 10px 10px 48px -11px rgba(0, 0, 0, 0.6);
+	box-shadow: 10px 10px 48px -11px rgba(0, 0, 0, 0.6);
 }
 
 img {
 	height: 160px;
 	-o-object-fit: cover;
 	object-fit: cover;
+	border-top: solid transparent 1px;
+	border-left: solid transparent 1px;
+	border-right: solid transparent 1px;
+	border-radius: 3px;
 }
 .description {
 	height: 40px;
