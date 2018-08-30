@@ -1,6 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const morgan = require('morgan');
+const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -53,13 +54,14 @@ app.post('/api/register', (req, res) => {
 	//add validation
 
 	if (password === password2) {
-		// add bcrypt
+		const salt = bcrypt.genSaltSync(10);
+		const hash = bcrypt.hashSync(password, salt);
 
 		const newUser = {
 			firstName: first,
 			lastName: last,
 			email,
-			password,
+			password: hash,
 			terms
 		};
 
@@ -85,8 +87,7 @@ app.post('/api/auth', (req, res) => {
 	User.findOne({ email: email }).then(user => {
 		if (user) {
 			console.log(user);
-			//add bcrypt
-			if (user.password === password) {
+			if (bcrypt.compareSync(password, user.password)) {
 				const token = jwt.sign(
 					{
 						id: user.id,
@@ -103,6 +104,11 @@ app.post('/api/auth', (req, res) => {
 			return res.status(401).json({ errors: 'Invalid Credentials' });
 		}
 	});
+});
+
+app.post('/api/upload', (req, res) => {
+	const {} = req.body;
+	console.log(email, password, req.body);
 });
 
 /* app.get('/api/hello', checkToken, (req, res) => {
