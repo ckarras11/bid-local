@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const { DATABASE_URL, PORT, JWT_ENCRYPTION_KEY } = require('./config');
 const path = require('path');
 const { User } = require('./models/user');
+const { Item } = require('./models/item');
 
 // Initializing app
 const app = express();
@@ -107,8 +108,18 @@ app.post('/api/auth', (req, res) => {
 });
 
 app.post('/api/upload', (req, res) => {
-	const {} = req.body;
-	console.log(email, password, req.body);
+	const { upload, title, location, price, length, description } = req.body;
+	const newItem = {
+		title,
+		price,
+		location,
+		description,
+		duration: length,
+		upload
+	};
+	Item.create(newItem).then(_item => {
+		res.status(201).json({ success: 'Item Listed', newItem: _item });
+	});
 });
 
 /* app.get('/api/hello', checkToken, (req, res) => {
