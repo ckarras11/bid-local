@@ -124,8 +124,7 @@ app.post('/api/upload', (req, res) => {
 });
 
 app.get('/api/for_sale', checkToken, (req, res) => {
-	Item.find().then(items => console.log(items));
-	res.status(200).send({ express: 'Hello From Express', userid: req.userid });
+	Item.find().then(items => res.status(200).send(items));
 });
 
 // Initializing Server
