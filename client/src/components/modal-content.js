@@ -16,7 +16,8 @@ export class ModalContent extends React.Component {
 	}
 
 	handleSubmit(values) {
-		this.props.dispatch(postItem(values));
+		const fullItem = { upload: this.props.upload, ...values };
+		this.props.dispatch(postItem(fullItem));
 	}
 
 	render() {

@@ -10,7 +10,8 @@ class SellForm extends Component {
 		super(props);
 		this.handlePreview = this.handlePreview.bind(this);
 	}
-	upload() {
+	upload(e) {
+		e.preventDefault();
 		window.cloudinary.openUploadWidget(
 			{
 				cloud_name: 'ckarras',
