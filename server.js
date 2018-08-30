@@ -34,9 +34,10 @@ function checkToken(req, res, next) {
 		console.log('No token provided');
 		return res.status(403).json({ auth: false, errors: 'No Token Provided' });
 	}
-
+	console.log(token);
 	jwt.verify(token, JWT_ENCRYPTION_KEY, function(err, decoded) {
 		if (err) {
+			console.log(err);
 			console.log('Failed to authenticate');
 			return res
 				.status(401)
@@ -93,7 +94,7 @@ app.post('/api/auth', (req, res) => {
 					{
 						id: user.id,
 						email: user.email,
-						exp: Math.floor(Date.now() / 1000) + 30
+						exp: Math.floor(new Date().getTime() / 1000) + 7 * 24 * 60 * 60
 					},
 					JWT_ENCRYPTION_KEY
 				);
@@ -122,9 +123,10 @@ app.post('/api/upload', (req, res) => {
 	});
 });
 
-/* app.get('/api/hello', checkToken, (req, res) => {
-    res.status(200).send({ express: 'Hello From Express', userid: req.userid });
-  }); */
+app.get('/api/for_sale', checkToken, (req, res) => {
+	Item.find().then(items => console.log(items));
+	res.status(200).send({ express: 'Hello From Express', userid: req.userid });
+});
 
 // Initializing Server
 let server;
