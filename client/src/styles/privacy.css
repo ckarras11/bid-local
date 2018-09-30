@@ -1,5 +1,6 @@
 .privacy__container,
-.faq__container {
+.faq__container,
+.terms__container {
 	text-align: left;
 	padding: 10px;
 	margin: auto;
@@ -7,7 +8,12 @@
 }
 
 .privacy__container p,
-.faq__container p {
+.faq__container p,
+.terms__container p {
 	text-align: justify;
 	padding: 20px;
+}
+
+.terms__container p:first-of-type {
+	padding: 10px;
 }
