@@ -1,0 +1,11 @@
+.privacy__container {
+	text-align: left;
+	padding: 10px;
+	margin: auto;
+	width: 75%;
+}
+
+.privacy__container p {
+	text-align: justify;
+	padding: 20px;
+}
