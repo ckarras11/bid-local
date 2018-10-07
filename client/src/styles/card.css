@@ -10,6 +10,24 @@
 	box-shadow: 10px 10px 48px -11px rgba(0, 0, 0, 0.6);
 }
 
+.card:hover {
+	cursor: pointer;
+}
+.heart {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+.heart:hover {
+	fill: red;
+	fill-opacity: 1;
+}
+
+.heart__saved {
+	fill: red;
+	fill-opacity: 1;
+}
+
 img {
 	height: 160px;
 	-o-object-fit: cover;
