@@ -35,7 +35,9 @@ export default class Grid extends Component {
 				location={item.location}
 				title={item.title}
 				price={item.price}
-				image={item.upload.secure_url}
+				image={item.upload ? item.upload.secure_url : null}
+				time={item.listingDate}
+				duration={item.duration}
 			/>
 		));
 		return <div className="grid-container">{cards}</div>;
