@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import {setCurrentUser} from './actions';
+import { setCurrentUser } from './actions';
 import jwt from 'jsonwebtoken';
 import './styles/index.css';
 import App from './components/App';
@@ -19,4 +19,3 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById('root')
 );
-
