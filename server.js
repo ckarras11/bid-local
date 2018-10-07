@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { DATABASE_URL, PORT, JWT_ENCRYPTION_KEY } = require('./config');
 const path = require('path');
+const moment = require('moment');
 const { User } = require('./models/user');
 const { Item } = require('./models/item');
 
@@ -116,7 +117,8 @@ app.post('/api/upload', (req, res) => {
 		location,
 		description,
 		duration: length,
-		upload
+		upload,
+		listingDate: moment().format()
 	};
 	Item.create(newItem).then(_item => {
 		res.status(201).json({ success: 'Item Listed', newItem: _item });

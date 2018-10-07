@@ -7,11 +7,12 @@ const itemSchema = new Schema({
 	location: { type: String, required: true },
 	description: { type: String },
 	duration: { type: Number, required: true },
+	listingDate: { type: Date, required: true },
 	upload: {
-		public_id: { type: String, required: true },
-		secure_url: { type: String, required: true },
-		path: { type: String, required: true },
-		thumbnail_url: { type: String, required: true }
+		public_id: { type: String },
+		secure_url: { type: String },
+		path: { type: String },
+		thumbnail_url: { type: String }
 	}
 });
 
