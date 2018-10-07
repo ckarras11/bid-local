@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SellForm from './SellForm';
 import { postItem } from '../actions';
@@ -9,7 +9,7 @@ function mapStateToProps(state) {
 	};
 }
 
-export class ModalContent extends React.Component {
+export class ModalContent extends Component {
 	constructor(props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
